@@ -1,0 +1,78 @@
+from IPOD import IPODRequired, RemainingInArgentina, RemainingInBrazil
+
+
+class Ipod:
+    def __init__(self,country,IPODStock,cost):
+        self.country =country
+        self.IPODStock =IPODStock
+        self.cost =cost
+
+Brazil = Ipod('brazil',100,100)
+Argentina = Ipod('argentina',100,50)
+country =input().lower()
+IPODRequired =int(input())
+print(country,':', IPODRequired)
+if country == 'brazil':
+    if (IPODRequired %10 == 0):
+        if IPODRequired<=100:
+            RemainingInBrazil = Brazil.IPODStock -IPODRequired 
+            totalCostInBrazil = IPODRequired * Brazil.cost
+            RemainingInArgentina = Argentina.IPODStock
+            print(totalCostInBrazil,':',RemainingInBrazil,':',RemainingInArgentina)
+        elif IPODRequired ==100:
+            RemainingInBrazil = Brazil.IPODStock - IPODRequired
+            totalCostInBrazil = IPODRequired * Brazil.cost
+            RemainingInArgentina = Argentina.IPODStock
+            print(totalCostInBrazil,':',RemainingInBrazil,':',RemainingInArgentina)
+            Brazil.IPODStock+=100
+        elif IPODRequired >100 and IPODRequired<=200:
+            RemainingInBrazil =  Brazil.IPODStock -100
+            extraIpods = IPODRequired -100
+            units =extraIpods//10
+            RemainingInArgentina =Argentina.IPODStock - extraIpods
+            extracost = units *400
+            costInBrazil = Brazil.cost * 100
+            costInArgentina = Argentina.cost *extraIpods
+            totalCostInBrazil =extracost + costInArgentina+costInBrazil
+            print(totalCostInBrazil,':',RemainingInBrazil,':',RemainingInArgentina)
+            Brazil.IPODStock+=100
+        else:
+            print('Out of stock!!!')    
+
+    else:
+        print("Invalid input!!!")  
+
+
+elif country =="argentina":
+    if (IPODRequired %10 == 0):
+        if IPODRequired<=100:
+            RemainingInArgentina = Argentina.IPODStock - IPODRequired
+            costInArgentina = Argentina.cost * IPODRequired
+            RemainingInBrazil = Brazil.IPODStock
+            print(costInArgentina,':',RemainingInBrazil,':', RemainingInArgentina)
+
+        elif IPODRequired ==100:
+            RemainingInArgentina = Argentina.IPODStock -IPODRequired 
+            costInArgentina = Argentina.cost * IPODRequired
+            RemainingInBrazil = Brazil.IPODStock
+            print(costInArgentina,':',RemainingInBrazil,':', RemainingInArgentina) 
+            Argentina.IPODStock+=100
+
+        elif IPODRequired >100 and IPODRequired<=200:  
+            RemainingInArgentina = Argentina.IPODStock - 100
+            extraIpods = IPODRequired-100
+            units = extraIpods//10
+            RemainingInBrazil = Brazil.IPODStock -extraIpods
+            extracost = units *400
+            costInArgentina = Argentina.cost *100
+            costInBrazil = Brazil.cost * extraIpods
+            totalCostInArgentina = extracost+costInBrazil+costInArgentina
+            print(totalCostInArgentina,':', RemainingInBrazil,':',RemainingInArgentina)  
+            Argentina.IPODStock+=100
+
+        else:
+            print("out of stock!!")
+    else:
+        print("invalid number")            
+else:
+    print("Enter the correct country name.")
