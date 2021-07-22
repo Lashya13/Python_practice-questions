@@ -1,0 +1,11 @@
+arr=[1,0,2,3,0,4,5,0]
+lengthOfTheArray= len(arr)
+for index in range(lengthOfTheArray-1):
+    if (arr[index]==0 and arr[index-1]!=0):
+        arr.insert(index+1,0)
+        arr.pop(lengthOfTheArray)
+    elif (arr[index]==0 and arr[index-1]==0):
+        index+=1
+    else:
+        index=index
+print(arr)
