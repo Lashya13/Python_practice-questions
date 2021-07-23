@@ -1,0 +1,80 @@
+def regularPriceInHotelX(day):
+    if day in weekend:
+        return 120
+    elif day in weekday:
+        return 100
+
+def regularPriceInHotelY(day):
+    if day in weekend:
+        return 150
+    elif day in weekday:
+        return 130
+
+def regularPriceInHotelZ(day):
+    if day in weekend:
+        return 150
+    elif day in weekday:
+        return 195
+
+def rewardiePriceInHotelX(day):
+    if day in weekend:
+        return 60
+    elif day in weekday:
+        return 90
+
+def rewardiePriceInHotelY(day):
+    if day in weekend:
+        return 95
+    elif day in weekday:
+        return 100
+
+def rewardiePriceInHotelZ(day):
+    if day in weekend:
+        return 90
+    elif day in weekday:
+        return 120
+
+while(1):
+    customerType =input("Enter customer type regular or rewardie:")
+    date =input("Enter date format: 14/03/2001(sun):")
+    day =date[11:len(date)-1]
+    weekday =['mon','tue','wed','thu','fri']
+    weekend =['sat','sun']
+    ratingOfHotelX = 3
+    ratingOfHotelY = 5
+    ratingOfHotelZ = 4
+    if customerType =="regular":
+        PriceInHotelX =  regularPriceInHotelX(day)    
+        PriceInHotelY =  regularPriceInHotelY(day) 
+        PriceInHotelZ =  regularPriceInHotelZ(day)  
+        if (PriceInHotelX < PriceInHotelY and PriceInHotelX < PriceInHotelZ):
+            print("Best hotel is HotelX: ", regularPriceInHotelX(day))
+        elif (PriceInHotelY < PriceInHotelZ and PriceInHotelY < PriceInHotelX):
+            print("Best hotel is HotelY: ", regularPriceInHotelY(day))   
+        else:
+            print("Best hotel is HotelZ: ", regularPriceInHotelZ(day))  
+        if (PriceInHotelX == PriceInHotelY):
+            if (ratingOfHotelX > ratingOfHotelY   and ratingOfHotelX >ratingOfHotelZ):
+                print("Best hotel is HotelX: ", regularPriceInHotelX(day))
+            elif (ratingOfHotelY > ratingOfHotelZ   and ratingOfHotelY >ratingOfHotelX):  
+                print("Best hotel is HotelY: ", regularPriceInHotelY(day))  
+            else:
+                print("Best hotel is HotelZ: ", regularPriceInHotelZ(day))
+
+    elif customerType =="rewardie":
+        PriceInHotelX =  rewardiePriceInHotelX(day)    
+        PriceInHotelY =  rewardiePriceInHotelY(day) 
+        PriceInHotelZ =  rewardiePriceInHotelZ(day)
+        if (PriceInHotelX < PriceInHotelY and PriceInHotelX < PriceInHotelZ):
+            print("Best hotel is HotelX: ", rewardiePriceInHotelX(day))
+        elif (PriceInHotelY < PriceInHotelZ and PriceInHotelY < PriceInHotelX):
+            print("Best hotel is HotelY: ", rewardiePriceInHotelY(day))   
+        else:
+            print("Best hotel is HotelZ: ", rewardiePriceInHotelZ(day))  
+        if (PriceInHotelX == PriceInHotelY):
+            if (ratingOfHotelX > ratingOfHotelY   and ratingOfHotelX >ratingOfHotelZ):
+                print("Best hotel is HotelX: ", rewardiePriceInHotelX(day))
+            elif (ratingOfHotelY > ratingOfHotelZ   and ratingOfHotelY >ratingOfHotelX):  
+                print("Best hotel is HotelY: ", rewardiePriceInHotelY(day))  
+            else:
+                print("Best hotel is HotelZ: ", rewardiePriceInHotelZ(day))
