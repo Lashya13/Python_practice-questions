@@ -1,0 +1,46 @@
+def First100(totalUnits): 
+    first100 = 100
+    if totalUnits <=100:
+        payF = totalUnits *f100Units
+        return payF
+
+    else:    
+        remainingAmount = totalUnits -first100
+        payF = first100 *f100Units
+        return payF  + Second100(remainingAmount)
+
+
+def Second100(remainingAmount):
+    second100 =100
+    if remainingAmount<= 100 :
+        payF2 = remainingAmount*Hto200Units
+        return payF2
+    else:
+        remainingAmount2 =  remainingAmount -second100  
+        payF2 = second100 *Hto200Units 
+        return payF2 + Third100(remainingAmount2)
+
+
+def Third100(remainingAmount2):
+    third100 =100
+    if remainingAmount2<=100:
+        payF3 = remainingAmount2 *Tto300Units
+        return payF3
+
+    else:
+        remainingAmount3 = remainingAmount2 -third100
+        payF3 =third100* Tto300Units
+        return payF3 + Above300(remainingAmount3)
+
+def Above300(remainingAmount3):
+    payF4 = remainingAmount3 * above300units
+    return payF4                    
+
+
+
+totalUnits = int(input("Enter the units: "))
+f100Units = 10
+Hto200Units = 15
+Tto300Units = 20
+above300units = 25
+print(First100(totalUnits))     
