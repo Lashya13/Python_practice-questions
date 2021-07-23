@@ -23,6 +23,7 @@ iv) Argentina : 250
 Out of stock!!!!
 
 **Sales Tax:**
+
 Basic sales tax is applicable at a rate of 10% on all goods, except books, food, and medical products that are exempt. Import duty is an additional sales tax applicable on all imported goods at a rate of 5%, with no exemptions.
 When I purchase items I receive a receipt which lists the name of all the items and their price (including tax), finishing with the total cost of the items, and the total amounts
 of sales taxes paid. The rounding rules for sales tax are that for a tax rate of n%,
@@ -88,7 +89,6 @@ Given an integer U denoting the amount of KWh units of electricity consumed, the
 above 300 units – Rs. 25/unit
 Examples: 
  
-
 Input: U = 250 
 Output: 3500 
 Explanation: 
