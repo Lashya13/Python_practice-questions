@@ -1,6 +1,7 @@
 # Python_practice-questions
 
 **iPOD Inventory**
+
 There is a company which has started selling the ipods ONLINE . But they want to sell these ipods online at the best price.
 i) They have ipod Inventories in Brazil and Argentina. Each of the inventory can store only 100 ipods.
 ii) iPods in Brazil are sold at 100$/unit and in Argentina they are sold at 50$/unit.
@@ -36,6 +37,7 @@ Input 2:
 1 imported bottle of perfume at 47.50
 
 **Hotel management:**
+
 A well renowned hotel has three branches in miami. Namely x,y and z (Actually they gave names). Each has two types of customers. Regular and Rewardee. Also each branch has its own ratings x is given a 3 star rating while y has 5 star rating and z has 4 star rating. Each hotel has specific rates for weekends and weekdays. x charges $100 for regular customers on weekdays and $120 on weekends While it is $90 for rewardee on weekdays  and $60 on weekends. Similarly y charges $130 for regular customers on weekdays and $150 on weekends. While it's $100 for rewardee on weekdays and $95 on weekends. While z charges $195 for regular customers on weekdays and $150 on weekends. While it's $120 for rewardee on weekdays and $90 on weekends.
 Now when the customer requests for a particular detail you need to find which hotel would yield the customer profit.
 In case of tie between hotels compare the ratings and provide the result.
@@ -76,6 +78,7 @@ Expected Output:
 
 
 **Electricity Problem**
+
 Given an integer U denoting the amount of KWh units of electricity consumed, the task is to calculate the electricity bill with the help of the below charges: 
  
 
