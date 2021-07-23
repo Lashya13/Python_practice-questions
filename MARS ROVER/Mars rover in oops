@@ -1,0 +1,77 @@
+class Mars:
+    def __init__(self,row,column,xcoordinate,ycoordinate,InitialDirection,seriesOfInstructions):
+        self.row =row
+        self.column = column
+        self.xcoordinate = xcoordinate
+        self.ycoordinate=  ycoordinate
+        self.InitialDirection =InitialDirection
+        self.seriesOfInstructions =seriesOfInstructions
+
+
+    def rotateright(self,InitialDirection):
+        if InitialDirection == "north":
+            InitialDirection = "east"
+        elif InitialDirection == "east":
+            InitialDirection = "south"
+        elif InitialDirection == "south":
+            InitialDirection = "west"
+        elif InitialDirection == "west":
+            InitialDirection = "north" 
+        return InitialDirection     
+
+    def rotateleft(self,InitialDirection):
+        if InitialDirection == "north":
+            InitialDirection = "west"
+        elif InitialDirection == "west":
+            InitialDirection = "south"
+        elif InitialDirection == "south":
+            InitialDirection = "east"
+        elif InitialDirection == "east":
+            InitialDirection = "north" 
+        return InitialDirection 
+
+    def movecoordinates(self,InitialDirection):
+        if InitialDirection =="north": 
+            self.xcoordinate = self.xcoordinate
+            self.ycoordinate +=1 
+
+        elif InitialDirection =="east":  
+            self.xcoordinate +=1
+            self.ycoordinate = self.ycoordinate
+        
+        elif InitialDirection =="west":
+            self.xcoordinate -=1
+            self.ycoordinate = self.ycoordinate
+       
+        elif InitialDirection =="south":
+            self.xcoordinate =self.xcoordinate
+            self.ycoordinate -=1
+
+        return self.xcoordinate, self.ycoordinate 
+
+    def giveninstructions(self):
+        InitialDirection = self.InitialDirection
+        movedPosition = self.xcoordinate,self.ycoordinate
+        for instruction in self.seriesOfInstructions:
+            if instruction =='L':
+                InitialDirection = self.rotateleft(InitialDirection)
+            elif instruction  =='R':
+                InitialDirection = self.rotateright(InitialDirection) 
+            elif instruction  =='M': 
+                movedPosition = self.movecoordinates(InitialDirection)  
+            else:
+                print("Please enter correct instruction.") 
+        return movedPosition ,InitialDirection      
+
+    def output(self):
+        if self.xcoordinate <= self.row and  self.ycoordinate<=self.column:
+            finalOutput = self.giveninstructions()    
+            return finalOutput 
+        else:
+            print("enter valid x and y cooedinates.")  
+
+
+rover1 = Mars(5,5,1,2,'north','LM')
+rover2= Mars(5,5,3,3,'east','MMRMMRMRRM')
+print(rover1.output())  
+print(rover2.output())     
