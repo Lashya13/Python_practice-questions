@@ -1,0 +1,22 @@
+def klargest(arr,k):
+    if (k>0):
+        maximum =arr[0]
+        for element in arr:
+            if element> maximum:
+                maximum = element
+        print("The largest numbers are : ",maximum)
+        arr.remove(maximum) 
+        k=k-1
+        klargest(arr,k)    
+
+
+num =int(input("Enter the number of elements in the array:"))
+arr =[]
+for i in range(num):
+    arr.append(int(input()))
+print(arr)
+k = int(input("how many largest number:"))
+
+klargest(arr,k)          
+
+
