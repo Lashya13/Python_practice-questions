@@ -1,0 +1,102 @@
+class Brazil:
+    def __init__(self,country,stockInBrazil,costPerItemInBrazil):
+        self.country =country
+        self.stockInBrazil =stockInBrazil
+        self.costPerItemInBrazil =costPerItemInBrazil
+
+    def availableNoOfIPODS(self,requiredIPOD):
+        if (requiredIPOD <= self.stockInBrazil):
+            remainingIpodInBrazil = self.stockInBrazil - requiredIPOD
+            costOfIPODInBrazil = requiredIPOD * self.costPerItemInBrazil
+            remainingIpodInArgentina = argentina.stockInArgentina
+            print(costOfIPODInBrazil,':', remainingIpodInBrazil ,':', remainingIpodInArgentina)
+            self.stockInBrazil = self.stockInBrazil+100
+
+        else:
+            brazil.equalIPODS(requiredIPOD)    
+
+    def equalIPODS(self,requiredIPOD):
+        if (requiredIPOD == self.stockInBrazil):
+            remainingIpodInBrazil = self.stockInBrazil - requiredIPOD
+            costOfIPODInBrazil = requiredIPOD * self.costPerItemInBrazil
+            remainingIpodInArgentina = argentina.stockInArgentina
+            print(costOfIPODInBrazil,':', remainingIpodInBrazil ,':', remainingIpodInArgentina)
+
+        else:
+            brazil.maximumIPODS(requiredIPOD)   
+
+    def maximumIPODS(self,requiredIPOD):
+        if (requiredIPOD > 100 and requiredIPOD <=200):
+            extraIPODS = requiredIPOD -100
+            remainingIpodInBrazil = self.stockInBrazil - 100
+            costOfIPODInBrazil = 100 * self.costPerItemInBrazil
+            extraUnits = extraIPODS//10
+            extraCost =extraUnits *400
+            remainingIpodInArgentina = argentina.stockInArgentina - extraIPODS
+            costOfIPODInArgentina = extraIPODS * argentina.costPerItemInArgentina
+            totalcost = costOfIPODInBrazil +costOfIPODInArgentina +extraCost
+            print(totalcost, ':' , remainingIpodInBrazil ,':', remainingIpodInArgentina)
+
+        else:
+            print("Out of stock!!!")    
+
+
+
+class Argentina: 
+    def __init__(self,country,stockInArgentina,costPerItemInArgentina):
+        self.country =country
+        self.stockInArgentina =stockInArgentina
+        self.costPerItemInArgentina = costPerItemInArgentina
+
+
+    def availableNoOfIPODS(self,requiredIPOD):
+        if (requiredIPOD <= self.stockInArgentina):
+            remainingIpodInArgentina = self.stockInArgentina - requiredIPOD
+            costOfIPODInArgentina = requiredIPOD * self.costPerItemInArgentina
+            remainingIpodInBrazil = brazil.stockInBrazil
+            print(costOfIPODInArgentina,':', remainingIpodInBrazil ,':', remainingIpodInArgentina)
+            self.stockInArgentina = self.stockInArgentina+100
+
+        else:
+            argentina.equalIPODS(requiredIPOD)    
+
+    def equalIPODS(self,requiredIPOD):
+        if (requiredIPOD == self.stockInArgentina):
+            remainingIpodInArgentina = self.stockInArgentina - requiredIPOD
+            costOfIPODInArgentina = requiredIPOD * self.costPerItemInArgentina
+            remainingIpodInBrazil = brazil.stockInBrazil
+            print(costOfIPODInArgentina,':', remainingIpodInBrazil ,':', remainingIpodInArgentina)
+
+        else:
+            argentina.maximumIPODS(requiredIPOD)   
+
+    def maximumIPODS(self,requiredIPOD):
+        if (requiredIPOD > 100 and requiredIPOD <=200):
+            extraIPODS = requiredIPOD -100
+            remainingIpodInArgentina = self.stockInArgentina - 100
+            costOfIPODInArgentina = 100 * self.costPerItemInArgentina
+            extraUnits = extraIPODS//10
+            extraCost =extraUnits *400
+            remainingIpodInBrazil = brazil.stockInBrazil - extraIPODS
+            costOfIPODInBrazil = extraIPODS * brazil.costPerItemInBrazil
+            totalcost = costOfIPODInBrazil +costOfIPODInArgentina +extraCost
+            print(totalcost, ':' , remainingIpodInBrazil ,':', remainingIpodInArgentina)
+
+        else:
+            print("Out of stock!!!")          
+
+
+
+brazil =Brazil("Brazil",100,100)
+argentina =Argentina("Argentina",100,50)   
+
+country =input("Enter the country name: ")
+requiredIPOD =int(input("Enter the number of IPODS you needed: "))
+print(country ,':', requiredIPOD)
+if country =="brazil":
+    brazil.availableNoOfIPODS(requiredIPOD)
+elif country == "argentina":
+    argentina.availableNoOfIPODS(requiredIPOD)
+else:
+    print("Enter the correct country name.")    
+
