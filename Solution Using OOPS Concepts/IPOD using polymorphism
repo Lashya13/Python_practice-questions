@@ -21,6 +21,7 @@ class Brazil:
             costOfIPODInBrazil = requiredIPOD * self.costPerItemInBrazil
             remainingIpodInArgentina = argentina.stockInArgentina
             print(costOfIPODInBrazil,':', remainingIpodInBrazil ,':', remainingIpodInArgentina)
+            self.stockInBrazil = self.stockInBrazil+100
 
         else:
             brazil.maximumIPODS(requiredIPOD)   
@@ -36,6 +37,7 @@ class Brazil:
             costOfIPODInArgentina = extraIPODS * argentina.costPerItemInArgentina
             totalcost = costOfIPODInBrazil +costOfIPODInArgentina +extraCost
             print(totalcost, ':' , remainingIpodInBrazil ,':', remainingIpodInArgentina)
+            self.stockInBrazil = self.stockInBrazil+100
 
         else:
             print("Out of stock!!!")    
@@ -66,6 +68,7 @@ class Argentina:
             costOfIPODInArgentina = requiredIPOD * self.costPerItemInArgentina
             remainingIpodInBrazil = brazil.stockInBrazil
             print(costOfIPODInArgentina,':', remainingIpodInBrazil ,':', remainingIpodInArgentina)
+            self.stockInArgentina = self.stockInArgentina+100
 
         else:
             argentina.maximumIPODS(requiredIPOD)   
@@ -81,6 +84,7 @@ class Argentina:
             costOfIPODInBrazil = extraIPODS * brazil.costPerItemInBrazil
             totalcost = costOfIPODInBrazil +costOfIPODInArgentina +extraCost
             print(totalcost, ':' , remainingIpodInBrazil ,':', remainingIpodInArgentina)
+            self.stockInArgentina = self.stockInArgentina+100
 
         else:
             print("Out of stock!!!")          
@@ -93,10 +97,11 @@ argentina =Argentina("Argentina",100,50)
 country =input("Enter the country name: ")
 requiredIPOD =int(input("Enter the number of IPODS you needed: "))
 print(country ,':', requiredIPOD)
+
 if country =="brazil":
     brazil.availableNoOfIPODS(requiredIPOD)
 elif country == "argentina":
     argentina.availableNoOfIPODS(requiredIPOD)
 else:
-    print("Enter the correct country name.")    
+    print("Enter the correct country name.") 
 
